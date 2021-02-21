@@ -48,9 +48,13 @@
   },
   "scripts": {
     "compile": "babel src --out-dir dist --copy-files --source-maps --presets=babel-preset-env",
-    "start": "npm run compile && node ./dist/index.js"
+    "start": "npm run compile && node ./dist/index.js",
+    "dev": "nodemon --exec babel-node ./src/index.js"
   },
   "devDependencies": {
+    "@babel/core": "7.12.17",
+    "@babel/node": "7.12.17",
+    "@babel/preset-env": "^7.12.17",
     "babel-cli": "6.26.0",
     "babel-polyfill": "6.26.0",
     "babel-preset-env": "1.7.0",
@@ -59,6 +63,7 @@
     "gulp-sourcemaps": "2.6.4",
     "gulp-typescript": "4.0.2",
     "gulpclass": "0.1.2",
+    "nodemon": "2.0.7",
     "ts-node": "5.0.1",
     "typescript": "2.8.1"
   }
