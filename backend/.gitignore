@@ -2,4 +2,4 @@ dist/
 node_modules/
 temp/
 database.sqlite
-ormconfig.json
+.env
