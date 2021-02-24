@@ -1,5 +1,5 @@
 type Query {
-    posts(limit: Int, offset: Int, sortBy: String): [Post]
+    posts(limit: Int, offset: Int, sortBy: String): PostResult
     post(id: Int): Post
 }
 

@@ -10,19 +10,24 @@ export class PostController {
         this.textGenerator = container.get(TextGenerator);
     }
 
-    posts(args) {
-
+    async posts(args) {
         let findOptions = {};
+
         if (args.limit)
             findOptions.take = args.limit;
         if (args.offset)
             findOptions.skip = args.offset;
         if (args.sortBy === "last")
             findOptions.order = { "id": "DESC" };
-        if (args.sortBy === "name")
-            findOptions.order = { "name": "ASC" };
-
-        return this.entityManager.find(Post, findOptions);
+        if (args.sortBy === "title")
+            findOptions.order = { "title": "ASC" };
+    
+        const [result, total] = await this.entityManager.findAndCount(Post, findOptions);
+        
+        return {
+            data: result,
+            count: total
+        };
     }
 
     post({ id }) {

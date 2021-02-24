@@ -10,8 +10,8 @@ export class PostsArgsValidator {
         if (args.offset !== undefined && args.offset < 0)
             throw new Error(`Offset cannot be less then zero.`);
 
-        if (args.sortBy && args.sortBy !== "name" && args.sortBy !== "last")
-            throw new Error(`Sort can only be by name or by last`);
+        if (args.sortBy && args.sortBy !== "title" && args.sortBy !== "last")
+            throw new Error(`Sort can only be by title or by last`);
     }
 
 }
